@@ -14,7 +14,23 @@
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="assets/javascripts/bootstrap.min.js"></script>
 
-    <%= yield %>
+    <div class="row-fluid">
+      <div class="span12">
+        <h2> QMe </h2>
+        Fluid 12
+        <div class="row-fluid">
+          <div class="span4"> 
 
+            <%= render 'layouts/aside' %> 
+
+          </div>
+          <div class="span8">
+
+            <%= yield %>
+            
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

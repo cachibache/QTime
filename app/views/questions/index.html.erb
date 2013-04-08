@@ -1,16 +1,10 @@
+Fluid 8
 <div class="row-fluid">
-  <h2> QMe </h2>
-  <div class="span12">
-    Fluid 12
-    <div class="row-fluid">
-      <div class="span4">Fluid 4</div>
-      <div class="span8">
-        Fluid 8
-        <div class="row-fluid">
-          <div class="span4">Fluid 4</div>
-          <div class="span4">Fluid 4</div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+  <% @questions.each do |question| %>
+    <li> <%= link_to 'Question', question_path %> </li>
+  <% end %>
+
+  <div class="span4">Fluid 4</div>
+  <div class="span4">Fluid 4</div>
 </div>
