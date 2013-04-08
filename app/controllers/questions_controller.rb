@@ -9,12 +9,14 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    render :new unless params[:answer].downcase == 'true' || 'false' # must take out whitespace
-    params[:answer] = params[:answer].downcase
+    render :new unless params[:answer].downcase.strip! == 'true' || 'false'
+    params[:answer] = params[:answer].downcase.strip!
     @question = Question.new(params[:question])
     if @question.save
-      redirect_to new_question_path
+      redirect_to questions_path
     else
       render :new
     end
+  end
+
 end
