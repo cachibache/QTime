@@ -1,4 +1,10 @@
 QTime::Application.routes.draw do
+  get "questions/index"
+
+  get "questions/new"
+
+  get "questions/create"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
