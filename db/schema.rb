@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(:version => 20130408105813) do
 
   create_table "questions", :force => true do |t|
     t.string   "question"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "number_of_true",  :default => 0
-    t.integer  "number_of_false", :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "true",       :default => 0
+    t.integer  "false",      :default => 0
   end
 
 end
