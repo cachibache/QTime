@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new
+    @question = questions.build(params[:question])
     if @question.save
       redirect_to new_question_path
     else
