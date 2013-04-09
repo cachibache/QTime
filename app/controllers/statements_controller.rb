@@ -9,8 +9,6 @@ class StatementsController < ApplicationController
   end
 
   def create
-    render :new unless params[:answer].downcase.strip! == 'true' || 'false'
-    params[:answer] = params[:answer].downcase.strip!
     @statement = Statement.new(params[:statement])
     if @statement.save
       redirect_to statements_path
