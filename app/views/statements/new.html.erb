@@ -5,12 +5,12 @@
 
       <legend>State whether this statement is true or false</legend>
       <%= f.label :statement %>      
-      <%= f.text_field :statement, :placeholder => "Please enter the statement" %>
+      <%= f.text_field :statement, :placeholder => "Please enter the statement" %> <br/>
       
-      <%= f.radio_button :true, 'true' %>
+      <%= f.radio_button :true_or_false, 'true' %>
       <%= f.label :true %>
 
-      <%= f.radio_button :false, 'false' %>
+      <%= f.radio_button :true_or_false, 'false' %>
       <%= f.label :false %>
 
       
