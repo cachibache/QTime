@@ -10,7 +10,8 @@ class StatementsController < ApplicationController
 
   def create
     @statement = Statement.new(params[:statement])
-    if @statement.save!
+    @statement.true_or_false == true ? @statement.no_true += 1 : @statement.no_false += 1
+    if @statement.save
       redirect_to statements_path
     else
       render :new
