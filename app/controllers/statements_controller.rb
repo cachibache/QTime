@@ -18,7 +18,7 @@ class StatementsController < ApplicationController
   end
 
   def show
-    @statement = statements.find(params[:id])
+    @statement = Statement.find(params[:id])
   end
 
 end
