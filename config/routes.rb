@@ -1,6 +1,10 @@
 QTime::Application.routes.draw do
 
-  resources :statements
+  resources :statements do
+    collection do
+      put :update
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

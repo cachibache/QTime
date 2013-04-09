@@ -27,7 +27,9 @@ class StatementsController < ApplicationController
   end
 
   def update
-    @statement = Statement.find(params[:id])
+    # @statement = Statement.find(params[:id])
+    # if params[:]
+
     if @statement.update_attributes(params[:statement])
       flash[:notice] = "You answered #{@statement.true_or_false}"
       redirect_to statements_path
