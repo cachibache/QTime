@@ -4,16 +4,21 @@
     <%= form_for @question do |f| %>
 
       <legend>State whether this statement is true or false</legend>
-      <label> <%= f.label :question %> </label>
+      <%= f.label :question %>      
+      <%= f.text_field :question, :placeholder => "Please enter the question" %>
       
-      <input type="text" placeholder="Type your question here..." size="75" <%= f.text_field :question %>  <br/>
+      <%= f.radio_button :true, 'true' %>
+      <%= f.label :true %>
+
+      <%= f.radio_button :false, 'false' %>
+      <%= f.label :false %>
+
       
-      <label> <%= f.label :answer %> </label>
-      <input type="text" placeholder="Type true or false" size="20" <%= f.text_field :answer %> >
-
-      <button type="submit" class="btn"> <%= f.submit %> </button>
-
+      
+      <%= f.submit %>
     <% end %>
 
   </fieldset>
 </form>
+
+
