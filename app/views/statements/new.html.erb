@@ -1,22 +1,19 @@
-<form>
+<%= form_for @statement do |f| %>
   <fieldset>
 
-    <%= form_for @statement do |f| %>
-
-      <legend>State whether this statement is true or false</legend>
+      <legend> Create your statement </legend>
       <%= f.label :statement %>      
-      <%= f.text_field :statement, :placeholder => "Please enter the statement" %> <br/>
+      <%= f.text_field :statement, :placeholder => "Please enter your statement" %> <br/>
       
-      <%= f.radio_button :true_or_false, 'true' %>
+      <%= f.radio_button :true_or_false, true %>
       <%= f.label :true %>
 
-      <%= f.radio_button :true_or_false, 'false' %>
+      <%= f.radio_button :true_or_false, false %>
       <%= f.label :false %>
       
       <%= f.submit %>
-    <% end %>
 
-  </fieldset>
-</form>
+  </fieldset>    
+<% end %>
 
 

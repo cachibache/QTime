@@ -10,11 +10,15 @@ class StatementsController < ApplicationController
 
   def create
     @statement = Statement.new(params[:statement])
-    if @statement.save
+    if @statement.save!
       redirect_to statements_path
     else
       render :new
     end
+  end
+
+  def show
+    @statement = statements.find(params[:id])
   end
 
 end

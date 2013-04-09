@@ -19,8 +19,19 @@ class StatementsControllerTest < ActionController::TestCase
 
   test 'can create new statement' do
     assert_equal 0, Statement.count
-    statement = StatementFactory.statement
     post :create, { :statement => {:statement => "some statement"} }
+    assert_equal 1, Statement.count
+  end
+
+  test 'can create statement with false value' do
+    assert_equal 0, Statement.count
+    post :create, { :statement => {:true_or_false => "false"} }
+    assert_equal 1, Statement.count
+  end
+
+  test 'can create statement with true value' do
+    assert_equal 0, Statement.count
+    post :create, { :statement => {:true_or_false => "true"} }
     assert_equal 1, Statement.count
   end
 
