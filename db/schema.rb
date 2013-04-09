@@ -11,13 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409112715) do
+ActiveRecord::Schema.define(:version => 20130409145749) do
 
   create_table "statements", :force => true do |t|
     t.string   "statement"
     t.boolean  "true_or_false"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "no_true",       :default => 0
+    t.integer  "no_false",      :default => 0
   end
 
 end

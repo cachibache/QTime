@@ -11,9 +11,11 @@
       <%= f.radio_button :true_or_false, false %>
       <%= f.label :false %>
       
-      <%= f.submit %>
+      <%= f.submit class: "btn" %>
 
   </fieldset>    
 <% end %>
+
+<%= link_to 'Statement List', statements_path, class: "btn" %>
 
 
