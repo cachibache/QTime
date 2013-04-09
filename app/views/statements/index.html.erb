@@ -1,0 +1,10 @@
+Fluid 8
+<div class="row-fluid">
+
+  <% @statement.each do |statement| %>
+    <li> <%= link_to 'Statement', statement_path %> </li>
+  <% end %>
+
+  <div class="span4">Fluid 4</div>
+  <div class="span4">Fluid 4</div>
+</div>

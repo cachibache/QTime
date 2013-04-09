@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130408105749) do
+ActiveRecord::Schema.define(:version => 20130409112715) do
 
-  create_table "questions", :force => true do |t|
-    t.string   "question"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "answer",     :null => false
+  create_table "statements", :force => true do |t|
+    t.string   "statement"
+    t.boolean  "true_or_false"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end

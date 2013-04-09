@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  statement: MyString
+  true_or_false: false
+
+two:
+  statement: MyString
+  true_or_false: false
