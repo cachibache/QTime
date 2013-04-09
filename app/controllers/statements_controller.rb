@@ -22,4 +22,21 @@ class StatementsController < ApplicationController
     @statement = Statement.find(params[:id])
   end
 
+  def edit
+    @statement = Statement.find(params[:id])
+  end
+
+  def update
+    @statement = Statement.find(params[:id])
+    if @statement.update_attributes(params[:statement])
+      flash[:notice] = "You answered #{@statement.true_or_false}"
+      redirect_to statements_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+  end
+
 end
