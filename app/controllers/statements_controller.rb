@@ -1,5 +1,7 @@
 class StatementsController < ApplicationController
   
+  before_filter :authenticate, :except => [:index]
+
   def index
     @statement = Statement.all
   end
