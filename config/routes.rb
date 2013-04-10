@@ -2,7 +2,7 @@ QTime::Application.routes.draw do
 
   resources :statements do
     collection do
-      put :update
+      get :vote_true
     end
   end
 

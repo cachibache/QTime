@@ -27,11 +27,7 @@ class StatementsController < ApplicationController
   end
 
   def update
-    # @statement = Statement.find(params[:id])
-    # if params[:]
-
     if @statement.update_attributes(params[:statement])
-      flash[:notice] = "You answered #{@statement.true_or_false}"
       redirect_to statements_path
     else
       render :edit
@@ -39,6 +35,10 @@ class StatementsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def vote_true
+    @statement.no_true += 1
   end
 
 end
