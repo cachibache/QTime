@@ -42,3 +42,5 @@ gem 'jquery-rails'
 gem 'debugger'
 
 gem 'omniauth-twitter'
+
+gem 'thumbs_up'

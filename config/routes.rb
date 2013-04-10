@@ -1,12 +1,10 @@
 QTime::Application.routes.draw do
 
-  resources :statements 
-
-  # do
-  #   collection do
-  #     get :vote_true
-  #   end
-  # end
+  resources :statements do
+    member do
+      get :vote_true
+    end
+  end
 
   match 'auth/twitter/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')

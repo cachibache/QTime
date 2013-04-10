@@ -2,7 +2,8 @@ Fluid 8
 <div class="row-fluid">
 
   <% @statement.each do |statement| %>
-    <li>  <%= link_to "Statement", statements_path %> </li>
+    <li>  <%= link_to "Statement", statement_path(statement) %> 
+          <%= link_to 'True', vote_true_statement_path(statement), class: "btn-small" %> </li>
   <% end %>
 
   <%= link_to 'Add a statement', new_statement_path, class: "btn" %>

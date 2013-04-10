@@ -13,6 +13,8 @@ class Statement < ActiveRecord::Base
 
   attr_accessible :statement, :true_or_false
 
+  acts_as_voteable
+
   validates :statement, :presence => :true
   validates :true_or_false, :inclusion => {:in => [true, false]}
 
