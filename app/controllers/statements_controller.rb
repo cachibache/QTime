@@ -10,7 +10,6 @@ class StatementsController < ApplicationController
 
   def create
     @statement = Statement.new(params[:statement])
-    @statement.true_or_false == true ? @statement.no_true += 1 : @statement.no_false += 1
     if @statement.save
       redirect_to statements_path
     else
@@ -40,6 +39,10 @@ class StatementsController < ApplicationController
   def vote_true
     @statement = Statement.find(params[:id])
     vote = current_user.vote_exclusively_for(@statement)
+  end
 
+  def vote_false
+    @statement = Statement.find(params[:id])
+    vote = current_user.vote_exclusively_against(@statement)
   end
 end

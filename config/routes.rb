@@ -3,6 +3,7 @@ QTime::Application.routes.draw do
   resources :statements do
     member do
       get :vote_true
+      get :vote_false
     end
   end
 
