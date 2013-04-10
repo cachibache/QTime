@@ -37,8 +37,10 @@ class StatementsController < ApplicationController
   def destroy
   end
 
-  def vote_true
-    @statement.no_true += 1
-  end
+  # def vote_true
+  #   @statement
+  #   debugger
+  #   @statement.no_true += 1
+  # end
 
 end
