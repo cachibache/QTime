@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>QMe</title>
+    <title> QMeNow </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -13,8 +13,13 @@
 
     <div class="row-fluid">
       <div class="span12">
-        <h2> QMe </h2>
-        Outside Container
+        <h2> QMeNow </h2>
+        <% if current_user %>
+          Signed in as <%= current_user.name %>!
+          <%= link_to 'Sign out', signout_path %>
+        <% else %>
+          <%= link_to 'Sign in with Twitter', "/auth/twitter" %>
+        <% end %>
         <div class="row-fluid">
           <div class="span4"> 
 

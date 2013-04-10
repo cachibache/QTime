@@ -41,4 +41,4 @@ gem 'jquery-rails'
 # To use debugger
 gem 'debugger'
 
-gem 'thumbs-up'
+gem 'omniauth-twitter'
