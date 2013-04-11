@@ -30,8 +30,9 @@ class StatementsController < ApplicationController
   end
 
   def update
+    @statement = Statement.find(params[:id])
     if @statement.update_attributes(params[:statement])
-      respond_with(@statement, :location => statements_path)
+      respond_with(@statement, :location => statement_path)
     else
       render :edit
     end
