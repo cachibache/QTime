@@ -1,0 +1,7 @@
+<div id='statement'>
+  <li>  <%= link_to statement.statement, statement_path(statement) %> 
+        <%= link_to 'True', vote_true_statement_path(statement), 
+          class: "btn-small" %>
+        <%= link_to 'False', vote_false_statement_path(statement), 
+          class: "btn-small" %> </li>
+</div

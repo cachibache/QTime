@@ -1,18 +1,20 @@
-<%= form_for @statement do |f| %>
-  <fieldset>
+<div id='new_statement'>
+  <%= form_for @statement, remote: true do |f| %>
+    <fieldset>
 
-      <%= f.label :statement %>      
-      <%= f.text_field :statement, :placeholder => "Please enter your statement" %> <br/>
-      
-      <%= f.radio_button :true_or_false, true %>
-      <%= f.label :true %>
+        <%= f.label :statement %>      
+        <%= f.text_field :statement, :placeholder => "Please enter your statement" %> <br/>
+        
+        <%= f.radio_button :true_or_false, true %>
+        <%= f.label :true %>
 
-      <%= f.radio_button :true_or_false, false %>
-      <%= f.label :false %>
-      
-      <%= f.submit class: "btn" %>
+        <%= f.radio_button :true_or_false, false %>
+        <%= f.label :false %>
+        
+        <%= f.submit class: "btn" %>
 
-  </fieldset>    
-<% end %>
+    </fieldset>    
+  <% end %>
 
-<%= link_to 'Statement List', statements_path, class: "btn" %>
+  <%= link_to 'Statement List', statements_path, class: "btn" %>
+</div>

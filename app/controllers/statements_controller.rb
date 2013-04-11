@@ -2,37 +2,38 @@ class StatementsController < ApplicationController
   
   before_filter :authenticate, :except => [:index]
 
-  respond_to :html, :js
-
   def index
-    respond_with(@statement = Statement.all)
+    @statements = Statement.all
   end
 
   def new
-    respond_with(@statement = Statement.new)
+    @statement = Statement.new
   end
 
   def create
     @statement = Statement.new(params[:statement])
     if @statement.save
-      respond_with(@statement, :location => statements_path)
+      respond_to do |format|
+        format.html { redirect_to statements_path }
+        format.js
+      end
     else
       render :new
     end
   end
 
   def show
-    respond_with(@statement = Statement.find(params[:id]))
+    @statement = Statement.find(params[:id])
   end
 
   def edit
-    respond_with(@statement = Statement.find(params[:id]))
+    @statement = Statement.find(params[:id])
   end
 
   def update
     @statement = Statement.find(params[:id])
     if @statement.update_attributes(params[:statement])
-      respond_with(@statement, :location => statement_path)
+      redirect_to statement_path
     else
       render :edit
     end

@@ -2,24 +2,23 @@
 
   <% if current_user %>
 
-    <% @statement.each do |statement| %>
-      <li>  <%= link_to statement.statement, statement_path(statement) %> 
-            <%= link_to 'True', vote_true_statement_path(statement), 
-              class: "btn-small" %>
-            <%= link_to 'False', vote_false_statement_path(statement), 
-              class: "btn-small" %> </li>
-      <% end %>
+    <% @statements.each do |statement| %>
 
-      <%= link_to 'Add a statement', new_statement_path, id: 'add_statement', class: "btn" %>
+      <%= render statement %>
+
+    <% end %>
+
+    <br/>
+    <%= link_to 'Add a statement', new_statement_path, id: 'add_statement', class: "btn", remote: true %>
 
     <% else %>
 
       <div class="hero-unit">
         <h1>So you think you are clever...</h1>
-        <p>Answer true or false to these questions and let's find out if you're FoS!  See stats on yours and other's awesomeness while you prove your worth in each category.</p>
+        <p>Answer true or false to these questions and let's find out if you're full of it!  
+          See stats on yours and other's awesomeness while you prove your worth in each category.</p>
         <p><a href="/auth/twitter" class="btn btn-primary btn-large">Sign in with Twitter &raquo;</a></p>
       </div>
 
     <% end %>
-
 </div>
