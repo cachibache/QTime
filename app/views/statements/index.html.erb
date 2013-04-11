@@ -1,16 +1,25 @@
-Fluid 8
 <div class="row-fluid">
 
-  <% @statement.each do |statement| %>
-    <li>  <%= link_to "Statement", statement_path(statement) %> 
-          <%= link_to 'True', vote_true_statement_path(statement), 
-            class: "btn-small" %>
-          <%= link_to 'False', vote_false_statement_path(statement), 
-            class: "btn-small" %> </li>
-  <% end %>
+  <% if current_user %>
 
-  <%= link_to 'Add a statement', new_statement_path, class: "btn" %>
+    <% @statement.each do |statement| %>
+      <li>  <%= link_to "Statement", statement_path(statement) %> 
+            <%= link_to 'True', vote_true_statement_path(statement), 
+              class: "btn-small" %>
+            <%= link_to 'False', vote_false_statement_path(statement), 
+              class: "btn-small" %> </li>
+      <% end %>
 
-  <div class="span4">Fluid 4</div>
-  <div class="span4">Fluid 4</div>
+      <%= link_to 'Add a statement', new_statement_path, class: "btn" %>
+
+    <% else %>
+
+      <div class="hero-unit">
+        <h1>So you think you are clever...</h1>
+        <p>Answer true or false to these questions and let's find out if you're FoS!  See stats on yours and other's awesomeness while you prove your worth in each category.</p>
+        <p><a href="/auth/twitter" class="btn btn-primary btn-large">Sign in with Twitter &raquo;</a></p>
+      </div>
+
+    <% end %>
+
 </div>
