@@ -2,34 +2,36 @@ class StatementsController < ApplicationController
   
   before_filter :authenticate, :except => [:index]
 
+  respond_to :html, :js
+
   def index
-    @statement = Statement.all
+    respond_with(@statement = Statement.all)
   end
 
   def new
-    @statement = Statement.new
+    respond_with(@statement = Statement.new)
   end
 
   def create
     @statement = Statement.new(params[:statement])
     if @statement.save
-      redirect_to statements_path
+      respond_with(@statement, :location => statements_path)
     else
       render :new
     end
   end
 
   def show
-    @statement = Statement.find(params[:id])
+    respond_with(@statement = Statement.find(params[:id]))
   end
 
   def edit
-    @statement = Statement.find(params[:id])
+    respond_with(@statement = Statement.find(params[:id]))
   end
 
   def update
     if @statement.update_attributes(params[:statement])
-      redirect_to statements_path
+      respond_with(@statement, :location => statements_path)
     else
       render :edit
     end
@@ -41,10 +43,12 @@ class StatementsController < ApplicationController
   def vote_true
     @statement = Statement.find(params[:id])
     vote = current_user.vote_exclusively_for(@statement)
+    redirect_to statements_path
   end
 
   def vote_false
     @statement = Statement.find(params[:id])
     vote = current_user.vote_exclusively_against(@statement)
+    redirect_to statements_path
   end
 end
