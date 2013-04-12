@@ -19,7 +19,7 @@ class Statement < ActiveRecord::Base
   validates :true_or_false, :inclusion => {:in => [true, false]}
 
 
-  def self.find_user_votes(current_user)
+  def self.find_unvoted(current_user)
     @statements = Statement.includes(:votes).all
      @statements.reject do |s| 
       s.votes.find{ |v| v.voter_id == current_user.id } 
