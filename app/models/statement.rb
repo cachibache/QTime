@@ -18,4 +18,11 @@ class Statement < ActiveRecord::Base
   validates :statement, :presence => :true
   validates :true_or_false, :inclusion => {:in => [true, false]}
 
+
+  def self.find_user_votes(current_user)
+    @statements = Statement.includes(:votes).all
+     @statements.reject do |s| 
+      s.votes.find{ |v| v.voter_id == current_user.id } 
+    end
+  end
 end

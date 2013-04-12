@@ -2,11 +2,11 @@
 
   <% if current_user %>
 
-    <% @statements.each do |statement| %>
+    <% #@statements.each do |statement| %>
 
-      <%= render statement %>
+      <%= render @statements, remote: true %>
 
-    <% end %>
+    <% #end %>
 
     <br/>
     <%= link_to 'Add a statement', new_statement_path, id: 'add_statement', class: "btn", remote: true %>

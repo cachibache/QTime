@@ -1,0 +1,3 @@
+$('#vote').click(function() {
+  $('#statement').load('<% j Statement_find_user_votes(current)user %>');
+});
