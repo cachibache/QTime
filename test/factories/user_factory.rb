@@ -1,7 +1,8 @@
 class UserFactory
 
   def self.user(params = {})
-    params[:statement] ||= "some statement"
+    params[:provider] ||= 'twitter'
+    params[:uid] ||= '467513442'
     User.create!(params)
   end
 end

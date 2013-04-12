@@ -8,23 +8,25 @@ class StatementsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get new" do
+  test "should get new if logged in" do
+    user = UserFactory.user
     get :new, {}, { :user_id => user.id }
     assert_response :success
   end
 
-  test 'can create statement with false value' do
+  test 'can create statement with false value if logged in' do
+    user = UserFactory.user
     assert_equal 0, Statement.count
     post :create, { :statement => {:statement => "some statement", :true_or_false => "false"}}, 
       { :user_id => user.id }
     assert_equal 1, Statement.count
   end
 
-  test 'can create statement with true value' do
+  test 'can create statement with true value if logged in' do
+    user = UserFactory.user
     assert_equal 0, Statement.count
     post :create, { :statement => {:statement => "some statement", :true_or_false => "true"}}, 
       { :user_id => user.id }
     assert_equal 1, Statement.count
   end
-
 end
