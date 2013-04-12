@@ -3,7 +3,7 @@ class StatementsController < ApplicationController
   before_filter :authenticate, :except => [:index]
 
   def index
-    @statements = Statement.find_unvoted(current_user)
+    @statements = Statement.find_unvoted(current_user).first
   end
 
   def unanswered_statement
