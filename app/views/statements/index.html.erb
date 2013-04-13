@@ -1,20 +1,8 @@
 <div class="row-fluid">
 
-  <% if current_user %>
-
     <%= render @statements, remote: true %>
 
     <br/>
     <%= link_to 'Add a statement', new_statement_path, id: 'add_statement', class: "btn", remote: true %>
 
-    <% else %>
-
-      <div class="hero-unit">
-        <h1>So you think you are clever...</h1>
-        <p>Answer true or false to these questions and let's find out if you're full of it!  
-          See stats on yours and other's awesomeness while you prove your worth in each category.</p>
-        <p><a href="/auth/twitter" class="btn btn-primary btn-large">Sign in with Twitter &raquo;</a></p>
-      </div>
-
-    <% end %>
 </div>

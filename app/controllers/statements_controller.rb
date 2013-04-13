@@ -1,6 +1,6 @@
 class StatementsController < ApplicationController
   
-  before_filter :authenticate, :except => [:index]
+  before_filter :authenticate, :except => [:index, :home]
 
   def index
     @statements = Statement.find_unvoted(current_user).first

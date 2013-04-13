@@ -21,7 +21,7 @@ class Statement < ActiveRecord::Base
 
   def self.find_unvoted(current_user)
     @statements = Statement.includes(:votes).all
-     @statements.reject do |s| 
+    @statements.reject do |s| 
       s.votes.find{ |v| v.voter_id == current_user.id } 
     end
   end
