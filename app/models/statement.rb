@@ -17,6 +17,7 @@ class Statement < ActiveRecord::Base
 
   validates :statement, :presence => :true
   validates :true_or_false, :inclusion => {:in => [true, false]}
+  validates_uniqueness_of :statement
 
 
   def self.find_unvoted(current_user)
