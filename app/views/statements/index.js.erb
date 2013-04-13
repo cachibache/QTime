@@ -1,3 +1,5 @@
 $('#vote').click(function() {
-  $('#statement').load('<%= j Statement_find_unvoted(current_user) %>');
+  $('#statement').fadeToggle(function(){
+    $(this).load('<%= j Statement_find_unvoted(current_user) %>');
+  });
 });

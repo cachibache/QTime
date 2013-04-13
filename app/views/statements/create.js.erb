@@ -1,3 +1,7 @@
 $('#new_statement').remove();
-$('#add_statement').show();
+
+$('#statement').slideDown(function() {
+  $('#add_statement').slideDown();
+});
+
 $('#statement').append('<% j render(@statement) %>');

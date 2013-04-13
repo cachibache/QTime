@@ -1,1 +1,4 @@
-$('#add_statement').hide().after('<%= j render("form") %>');
+$('#add_statement').slideUp(function(){
+  $('#statement').slideUp('swing');
+  $(this).after('<%= j render("form") %>');
+});
