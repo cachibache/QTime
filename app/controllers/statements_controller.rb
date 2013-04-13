@@ -40,6 +40,14 @@ class StatementsController < ApplicationController
   end
 
   def destroy
+    @statement = Statement.find(params[:id])
+    if @statement.delete
+      flash[:notice] = 'Your statement has been deleted.'
+      redirect_to statements_path
+    else
+      flash[:notice] = 'Not deleted. Please try again!'
+      redirect_to statements_path
+    end
   end
 
   def vote_true
