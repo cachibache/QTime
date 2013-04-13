@@ -54,11 +54,13 @@ class StatementsController < ApplicationController
     @statement = Statement.find(params[:id])
     vote = current_user.vote_exclusively_for(@statement)
     redirect_to statements_path
+    vote
   end
 
   def vote_false
     @statement = Statement.find(params[:id])
     vote = current_user.vote_exclusively_against(@statement)
     redirect_to statements_path
+    vote
   end
 end

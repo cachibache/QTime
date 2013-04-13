@@ -26,4 +26,9 @@ class Statement < ActiveRecord::Base
       s.votes.find{ |v| v.voter_id == current_user.id } 
     end
   end
+
+  def self.vote_correct?
+    @statement = Statement.find(params[:id])
+    @statement.true_or_false == @statement.votes.vote ? true : false
+  end
 end
