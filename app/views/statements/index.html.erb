@@ -1,8 +1,16 @@
 <div class="row-fluid">
 
+  <% if @statements != nil %>
+
     <%= render @statements, remote: true %>
 
-    <br/>
-    <%= link_to 'Add a statement', new_statement_path, id: 'add_statement', class: "btn", remote: true %>
+  <% else %>
+
+    <p> <%= 'There are no statements left to vote on' %> </p>
+
+  <% end %>
+
+  <br/>
+  <%= link_to 'Add a statement', new_statement_path, id: 'add_statement', class: "btn", remote: true %>
 
 </div>
