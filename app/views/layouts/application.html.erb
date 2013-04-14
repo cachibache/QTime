@@ -17,10 +17,10 @@
         <div id='logo'><h1> Q Me </h1></div>
         <% if current_user %>
           <div id='text-right'> Signed in as <%= current_user.name %>!
-            <%= link_to 'Sign out', signout_path %> 
+            <%= link_to 'Sign out', signout_path %> <br/>
           </div>
         <% else %>
-          <%= link_to 'Sign in with Twitter', "/auth/twitter" %>
+          
         <% end %>
         <div class="row-fluid">
           <div class="span4"> 
