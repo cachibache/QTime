@@ -2,6 +2,7 @@
 <html>
   <head>
     <title> QMe </title>
+    <link href='http://fonts.googleapis.com/css?family=Mr+De+Haviland' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -13,10 +14,11 @@
 
     <div class="row-fluid">
       <div class="span12">
-        <h2> QMe </h2>
+        <div id='logo'><h1> Q Me </h1></div>
         <% if current_user %>
-          Signed in as <%= current_user.name %>!
-          <%= link_to 'Sign out', signout_path %>
+          <div id='text-right'> Signed in as <%= current_user.name %>!
+            <%= link_to 'Sign out', signout_path %> 
+          </div>
         <% else %>
           <%= link_to 'Sign in with Twitter', "/auth/twitter" %>
         <% end %>

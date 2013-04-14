@@ -8,6 +8,14 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
+#text-right {
+  text-align: right;
+}
+
+#logo {
+  font-family: 'Mr De Haviland', cursive;
+}
+
 .clearfix {
   *zoom: 1;
 }
