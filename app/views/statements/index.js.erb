@@ -1,8 +1,3 @@
 $('#vote').click(function() {
-  $('#statement').after('<%= j Statement.vote_correct? ? "Correct!" : "Incorrect!" %>');
-  $('#statement').load('<%= j Statement.find_unvoted(current_user) %>');
+  $('#statement').load('<%= j Statement_find_unvoted(current_user) %>');
 });
-
-// $('#vote').click(function() {
-//   $('#statement').load('<%= j Statement_find_unvoted(current_user) %>');
-// });
