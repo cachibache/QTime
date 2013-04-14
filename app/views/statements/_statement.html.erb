@@ -1,5 +1,5 @@
 <div id='statement' class='hero-unit'>
-  <li>  <%= link_to statement.statement, statement_path(statement) %> 
+  <li>  <%= link_to statement.statement, statement_path(statement) %> <br/>
         <%= link_to 'True', vote_true_statement_path(statement), 
           class: "btn-small", id: "vote" %>
         <%= link_to 'False', vote_false_statement_path(statement), 
