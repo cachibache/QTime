@@ -6,11 +6,13 @@
 
   <% else %>
 
-    <p class='hero-unit'> <%= 'There are no statements left to vote on' %> </p>
+    <p class='hero-unit' id='statement'> <%= 'There are no statements 
+      left to vote on' %> </p>
 
   <% end %>
 
   <br/>
-  <%= link_to 'Add a statement', new_statement_path, id: 'add_statement', class: "btn", remote: true %>
+  <%= link_to 'Add a statement', new_statement_path, id: 'add_statement', 
+    class: "btn", remote: true %>
 
 </div>
