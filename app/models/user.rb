@@ -11,8 +11,10 @@
 #
 
 class User < ActiveRecord::Base
-  
+
   acts_as_voter
+
+  attr_accessible :provider, :uid
 
   def self.from_omniauth(auth)
     where(auth.slice('provider', 'uid')).first || create_from_omniauth(auth)

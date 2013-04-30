@@ -7,6 +7,10 @@ gem 'rails', '3.2.12'
 
 gem 'pg'
 
+gem 'guard'
+gem 'guard-test'
+gem 'rb-fsevent', '~> 0.9'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

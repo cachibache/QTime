@@ -1,10 +1,12 @@
 require 'test_helper'
+require 'factories/user_factory'
 require 'factories/statement_factory'
 
 class StatementsControllerTest < ActionController::TestCase
 
   test "should get index" do
-    get :index
+    user = UserFactory.user
+    get :index, {}, { :user_id => user.id }
     assert_response :success
   end
 
@@ -14,19 +16,27 @@ class StatementsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'can create statement with false value if logged in' do
-    user = UserFactory.user
-    assert_equal 0, Statement.count
-    post :create, { :statement => {:statement => "some statement", :true_or_false => "false"}}, 
-      { :user_id => user.id }
-    assert_equal 1, Statement.count
+  test 'should not get new unless logged in' do
+
   end
 
-  test 'can create statement with true value if logged in' do
+  test 'can create statement if logged in' do
     user = UserFactory.user
     assert_equal 0, Statement.count
     post :create, { :statement => {:statement => "some statement", :true_or_false => "true"}}, 
       { :user_id => user.id }
     assert_equal 1, Statement.count
+  end
+
+  test 'cannot create statement unless logged in' do
+
+  end
+
+  test 'can vote true' do
+
+  end
+
+  test 'can vote false' do
+
   end
 end

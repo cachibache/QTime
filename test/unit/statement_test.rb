@@ -10,9 +10,15 @@
 #
 
 require 'test_helper'
+require 'factories/statement_factory'
 
 class StatementTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test 'can return unvoted statements' do
+
+  end
+
+  test 'can return voted statements' do
+
+  end
 end
