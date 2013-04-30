@@ -33,8 +33,4 @@ class Statement < ActiveRecord::Base
       s.votes.find { |v| v.voter_id == current_user.id }
     end
   end
-
-  # def self.vote_correct?
-  #   @statements.vote == true ? puts 'Correct' : puts 'Incorrect'
-  # end
 end

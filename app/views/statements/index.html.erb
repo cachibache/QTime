@@ -1,8 +1,15 @@
 <div class="row-fluid">
 
-  <% if @statements != nil %>
+  <% if @first_unvoted != nil %>
 
-    <%= render @statements, remote: true %>
+    <div id='statement' class='hero-unit'>
+      <li>  <%= @first_unvoted.statement %> <br/>
+            <%= link_to 'True', vote_true_statement_path(@first_unvoted), 
+              class: "btn-small", class: "vote", remote: true %>
+            <%= link_to 'False', vote_false_statement_path(@first_unvoted), 
+              class: "btn-small", class: "vote", remote: true %> 
+      </li>
+    </div>
 
   <% else %>
 

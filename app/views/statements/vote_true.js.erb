@@ -1,0 +1,4 @@
+$('.vote').click(function() {
+  $('#statement').children().replaceWith('<li> <%= j @last_voted.statement %> <br/>
+    <%= j link_to "Next Statement", Statement.find_unvoted(current_user).first %> <\li>');
+});

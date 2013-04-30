@@ -3,7 +3,8 @@ class StatementsController < ApplicationController
   before_filter :authenticate, :except => [:home]
 
   def index
-    @statements = Statement.find_unvoted(current_user)
+    @first_unvoted = Statement.find_unvoted(current_user).first
+    @last_voted = Statement.find_voted(current_user).last
   end
 
   def new
@@ -53,14 +54,22 @@ class StatementsController < ApplicationController
   def vote_true
     @statement = Statement.find(params[:id])
     vote = current_user.vote_exclusively_for(@statement)
-    redirect_to statements_path
+    @last_voted = Statement.find_voted(current_user).last
+    respond_to do |format|
+      format.html { redirect_to statements_path }
+      format.js
+    end
     vote
   end
 
   def vote_false
     @statement = Statement.find(params[:id])
     vote = current_user.vote_exclusively_against(@statement)
-    redirect_to statements_path
+    @last_voted = Statement.find_voted(current_user).last
+    respond_to do |format|
+      format.html { redirect_to statements_path }
+      format.js
+    end
     vote
   end
 end
