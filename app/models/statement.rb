@@ -23,12 +23,18 @@ class Statement < ActiveRecord::Base
   def self.find_unvoted(current_user)
     @statements = Statement.includes(:votes).all
     @statements.reject do |s| 
-      s.votes.find{ |v| v.voter_id == current_user.id } 
+      s.votes.find { |v| v.voter_id == current_user.id } 
+    end
+  end
+
+  def self.find_voted(current_user)
+    @statements = Statement.includes(:votes).all
+    @statements.select do |s|
+      s.votes.find { |v| v.voter_id == current_user.id }
     end
   end
 
   # def self.vote_correct?
-  #   @statement = Statement.find(params[:id])
-  #   @statement.true_or_false == @statement.votes.vote ? true : false
+  #   @statements.vote == true ? puts 'Correct' : puts 'Incorrect'
   # end
 end
