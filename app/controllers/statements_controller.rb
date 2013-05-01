@@ -25,6 +25,11 @@ class StatementsController < ApplicationController
 
   def show
     @statement = Statement.find(params[:id])
+    @next_statement = Statement.find_unvoted(current_user).first
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit
@@ -55,6 +60,7 @@ class StatementsController < ApplicationController
     @statement = Statement.find(params[:id])
     @vote = current_user.vote_exclusively_for(@statement)
     @last_voted = Statement.find_voted(current_user).last
+    @next_statement = Statement.find_unvoted(current_user).first
     respond_to do |format|
       format.html { redirect_to statements_path }
       format.js
@@ -66,6 +72,7 @@ class StatementsController < ApplicationController
     @statement = Statement.find(params[:id])
     @vote = current_user.vote_exclusively_against(@statement)
     @last_voted = Statement.find_voted(current_user).last
+    @next_statement = Statement.find_unvoted(current_user).first
     respond_to do |format|
       format.html { redirect_to statements_path }
       format.js

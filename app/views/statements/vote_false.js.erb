@@ -1,1 +1,1 @@
-$('#statement').html('<ul> <li> <%= @last_voted.statement %> <br/><%= link_to "Next Statement", Statement.find_unvoted(current_user).first, class: "btn-small" %> </li> </ul>');
+$('#statement').html('<ul> <li> <%= @last_voted.statement %> <br/> <%= link_to "Next Statement", statement_path(@next_statement), class: "next btn-small", remote: true %> </li> </ul>');

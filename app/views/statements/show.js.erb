@@ -1,0 +1,1 @@
+$('#statement').html('<ul> <li> <%= @next_statement.statement %> <br/> <%= link_to "True", vote_true_statement_path(@next_statement), class: "vote btn-small", remote: true %> <%= link_to "False", vote_false_statement_path(@next_statement), class: "vote btn-small", remote: true %>');
