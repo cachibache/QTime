@@ -4,7 +4,6 @@ class StatementsController < ApplicationController
 
   def index
     @first_unvoted = Statement.find_unvoted(current_user).first
-    @last_voted = Statement.find_voted(current_user).last
   end
 
   def new
