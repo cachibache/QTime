@@ -1,6 +1,11 @@
-<h3> <%= @statement.statement %> </h3>
+<% if @first_unvoted != nil %>
 
-<p> <%= @statement.true_or_false %> </p>
+  <h3> <%= @statement.statement %> </h3>
 
-<%= link_to 'Statement List', statements_path, class: "btn" %>
-<%= link_to 'Update', edit_statement_path, class: "btn" %>
+  <p> <%= @statement.true_or_false %> </p>
+
+  <%= link_to 'Statement List', statements_path, class: "btn" %>
+  <%= link_to 'Update', edit_statement_path, class: "btn" %>
+
+<% else %>
+
