@@ -6,9 +6,9 @@
       <ul>
         <li>  <%= @first_unvoted.statement %> <br/>
               <%= link_to 'True', vote_true_statement_path(@first_unvoted), 
-                class: "vote", class: "btn-small", remote: true %>
+                class: "vote btn-small", remote: true %>
               <%= link_to 'False', vote_false_statement_path(@first_unvoted), 
-                class: "vote", class: "btn-small", remote: true %> 
+                class: "vote btn-small", remote: true %> 
         </li>
       </ul>
     </div>
