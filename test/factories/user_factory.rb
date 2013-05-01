@@ -13,8 +13,9 @@
 class UserFactory
 
   def self.user(params = {})
-    params[:provider] ||= 'twitter'
-    params[:uid] ||= '467513442'
-    User.create!(params)
+    params["provider"] ||= 'twitter'
+    params["uid"] ||= '467513442'
+    params["info"] = { "nickname" => 'alex'}
+    User.create_from_omniauth(params)
   end
 end

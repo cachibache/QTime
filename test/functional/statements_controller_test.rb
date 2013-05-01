@@ -16,10 +16,6 @@ class StatementsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'should not get new unless logged in' do
-
-  end
-
   test 'can create statement if logged in' do
     user = UserFactory.user
     assert_equal 0, Statement.count
@@ -33,7 +29,11 @@ class StatementsControllerTest < ActionController::TestCase
   end
 
   test 'can vote true' do
-
+    user = UserFactory.user
+    statement = StatementFactory.unvoted_statement
+    get :vote_true, { :id => statement.id }, { :user_id => user.id }
+    vote = assigns(:vote).vote
+    assert_equal true, vote
   end
 
   test 'can vote false' do

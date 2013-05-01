@@ -53,23 +53,23 @@ class StatementsController < ApplicationController
 
   def vote_true
     @statement = Statement.find(params[:id])
-    vote = current_user.vote_exclusively_for(@statement)
+    @vote = current_user.vote_exclusively_for(@statement)
     @last_voted = Statement.find_voted(current_user).last
     respond_to do |format|
       format.html { redirect_to statements_path }
       format.js
     end
-    vote
+    @vote
   end
 
   def vote_false
     @statement = Statement.find(params[:id])
-    vote = current_user.vote_exclusively_against(@statement)
+    @vote = current_user.vote_exclusively_against(@statement)
     @last_voted = Statement.find_voted(current_user).last
     respond_to do |format|
       format.html { redirect_to statements_path }
       format.js
     end
-    vote
+    @vote
   end
 end

@@ -7,7 +7,7 @@ QTime::Application.routes.draw do
     end
   end
 
-  match 'new_session', to: 'sessions#new'
+  match 'new_session', to: 'sessions#create'
   match 'auth/twitter/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
