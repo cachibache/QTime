@@ -23,6 +23,9 @@ class StatementTest < ActiveSupport::TestCase
   end
 
   test 'can return voted statements' do
-    
+    user = UserFactory.user
+    statement = StatementFactory.voted_statement(user)
+    voted_statements = Statement.find_voted(user)
+    assert_equal 1, voted_statements.count
   end
 end

@@ -9,6 +9,8 @@
 #  updated_at    :datetime         not null
 #
 
+require 'factories/user_factory'
+
 class StatementFactory
 
   def self.unvoted_statement(params = {})
@@ -17,10 +19,10 @@ class StatementFactory
     unvoted_statement = Statement.create!(params)
   end
 
-  def self.voted_statement(params = {})
+  def self.voted_statement(user, params = {})
     params[:statement] ||= "some statement"
     params[:true_or_false] ||= true
     statement = Statement.create!(params)
-    voted_statement = statement.vote_true
+    vote = user.vote_exclusively_for(statement)
   end
 end
