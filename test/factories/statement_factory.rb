@@ -11,21 +11,16 @@
 
 class StatementFactory
 
-  def self.true_statement(params = {})
-    params[:statement] ||= "some statement"
-    params[:true_or_false] ||= true
-    Statement.create!(params)
-  end
-
-  def self.false_statement(params = {})
-    params[:statement] ||= "some statement"
-    params[:true_or_false] ||= false
-    Statement.create!(params)
-  end
-
   def self.unvoted_statement(params = {})
     params[:statement] ||= "some statement"
     params[:true_or_false] ||= true
+    unvoted_statement = Statement.create!(params)
+  end
+
+  def self.voted_statement(params = {})
+    params[:statement] ||= "some statement"
+    params[:true_or_false] ||= true
     statement = Statement.create!(params)
+    voted_statement = statement.vote_true
   end
 end

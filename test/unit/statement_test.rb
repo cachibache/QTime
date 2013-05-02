@@ -11,14 +11,18 @@
 
 require 'test_helper'
 require 'factories/statement_factory'
+require 'factories/user_factory'
 
 class StatementTest < ActiveSupport::TestCase
 
   test 'can return unvoted statements' do
-
+    user = UserFactory.user
+    statement = StatementFactory.unvoted_statement
+    unvoted_statements = Statement.find_unvoted(user)
+    assert_equal 1, unvoted_statements.count
   end
 
   test 'can return voted statements' do
-
+    
   end
 end
