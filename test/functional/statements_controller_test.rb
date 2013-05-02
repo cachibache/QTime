@@ -19,24 +19,29 @@ class StatementsControllerTest < ActionController::TestCase
   test 'can create statement if logged in' do
     user = UserFactory.user
     assert_equal 0, Statement.count
-    post :create, { :statement => {:statement => "some statement", :true_or_false => "true"}}, 
+    post :create, { :statement => {:statement => "some statement", :true_or_false => "true"} }, 
       { :user_id => user.id }
     assert_equal 1, Statement.count
   end
 
   test 'cannot create statement unless logged in' do
-
+    user = UserFactory.user
+    assert_equal 0, Statement.count
+    post :create, { :statement => {:statement => "some statement", :true_or_false => "true"} }
+    assert_equal 0, Statement.count
   end
 
   test 'can vote true' do
     user = UserFactory.user
     statement = StatementFactory.unvoted_statement
     get :vote_true, { :id => statement.id }, { :user_id => user.id }
-    vote = assigns(:vote).vote
-    assert_equal true, vote
+    assert_equal true, assigns(:vote).vote
   end
 
   test 'can vote false' do
-
+    user = UserFactory.user
+    statement = StatementFactory.unvoted_statement
+    get :vote_false, { :id => statement.id }, { :user_id => user.id }
+    assert_equal false, assigns(:vote).vote
   end
 end
