@@ -1,3 +1,29 @@
-<div class='hero-unit'> This is the Aside Section.
-
-It's where stats will go </div>
+<div class='hero-unit'>
+  <p> Results </p>
+  <table class='table table-condensed'>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Answered correctly</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Answered incorrectly</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Total questions</td>
+        <td><%= Statement.count %></td>
+        <td>100%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
