@@ -17,11 +17,11 @@
         <td><%= Statement.number_incorrect?(current_user) %></td>
       </tr>
       <tr>
-        <td>Total answered</td>
+        <td>Answered</td>
         <td><%= Vote.count %></td>
       </tr>
       <tr>
-        <td>Total unanswered</td>
+        <td>Unanswered</td>
         <td><%= Statement.count - Vote.count %></td>
       </tr>
       <tr>
