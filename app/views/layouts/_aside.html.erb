@@ -5,24 +5,28 @@
       <tr>
         <th></th>
         <th></th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr class='success'>
         <td>Answered correctly</td>
-        <td></td>
-        <td></td>
+        <td><%= Statement.number_correct?(current_user) %></td>
       </tr>
-      <tr>
+      <tr class='error'>
         <td>Answered incorrectly</td>
-        <td></td>
-        <td></td>
+        <td><%= Statement.number_incorrect?(current_user) %></td>
       </tr>
       <tr>
-        <td>Total questions</td>
-        <td><%= Statement.count %></td>
-        <td>100%</td>
+        <td>Total answered</td>
+        <td><%= Vote.count %></td>
+      </tr>
+      <tr>
+        <td>Total unanswered</td>
+        <td><%= Statement.count - Vote.count %></td>
+      </tr>
+      <tr>
+        <th>Total questions</th>
+        <th><%= Statement.count %></th>
       </tr>
     </tbody>
   </table>
