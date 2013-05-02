@@ -19,10 +19,17 @@ class StatementFactory
     unvoted_statement = Statement.create!(params)
   end
 
-  def self.voted_statement(user, params = {})
+  def self.voted_true_statement(user, params = {})
     params[:statement] ||= "some statement"
     params[:true_or_false] ||= true
     statement = Statement.create!(params)
     vote = user.vote_exclusively_for(statement)
+  end
+
+  def self.voted_false_statement(user, params = {})
+    params[:statement] ||= "some statement"
+    params[:true_or_false] ||= true
+    statement = Statement.create!(params)
+    vote = user.vote_exclusively_against(statement)
   end
 end

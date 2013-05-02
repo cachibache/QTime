@@ -33,4 +33,20 @@ class Statement < ActiveRecord::Base
       s.votes.find { |v| v.voter_id == current_user.id }
     end
   end
+
+  def self.number_correct?(current_user)
+    @statements = Statement.includes(:votes).all
+    number_correct = @statements.select do |s|
+      s.votes.find { |v| v.vote == s.true_or_false }
+    end
+    number_correct.count
+  end
+
+  def self.number_incorrect?(current_user)
+    @statements = Statement.includes(:votes).all
+    number_incorrect = @statements.select do |s|
+      s.votes.find { |v| v.vote != s.true_or_false }
+    end
+    number_incorrect.count
+  end
 end
