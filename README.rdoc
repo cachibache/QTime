@@ -1,8 +1,8 @@
 == QTime
 
 This is a simple True/False game app created in week eight of a 10-week intensive 
-web development programme at Makers Academy in London between February and April
-2013. I should point out that before this course I had no coding experience
+web development programme at Makers Academy in London between February and April 2013
+I should point out that before this course I had no coding experience
 beyond basic intro online courses currently available on the web.
 
 The app is created with Ruby on Rails, incorporating a bit of unobtrusive JavaScript,
