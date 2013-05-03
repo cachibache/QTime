@@ -11,6 +11,6 @@ order to incorporate best practices and write clean, clear and elegant code that
 easy to maintain.
 
 Additionally, I used Omniauth to sign in users through Twitter and data is persisted
-using Pestgresql.  I hope you find I've done a good job.
+using Postgresql.  I hope you find I've done a good job.
 
 Thanks for visiting!
