@@ -10,11 +10,11 @@
     <tbody>
       <tr class='success'>
         <td>Answered correctly</td>
-        <td><%= Statement.number_correct?(current_user) %></td>
+        <td><%= Statement.number_correct(current_user) %></td>
       </tr>
       <tr class='error'>
         <td>Answered incorrectly</td>
-        <td><%= Statement.number_incorrect?(current_user) %></td>
+        <td><%= Statement.number_incorrect(current_user) %></td>
       </tr>
       <tr>
         <td>Answered</td>

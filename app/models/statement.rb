@@ -34,7 +34,7 @@ class Statement < ActiveRecord::Base
     end
   end
 
-  def self.number_correct?(current_user)
+  def self.number_correct(current_user)
     @statements = Statement.includes(:votes).all
     number_correct = @statements.select do |s|
       s.votes.find { |v| v.vote == s.true_or_false }
@@ -42,7 +42,7 @@ class Statement < ActiveRecord::Base
     number_correct.count
   end
 
-  def self.number_incorrect?(current_user)
+  def self.number_incorrect(current_user)
     @statements = Statement.includes(:votes).all
     number_incorrect = @statements.select do |s|
       s.votes.find { |v| v.vote != s.true_or_false }
