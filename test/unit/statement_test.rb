@@ -32,14 +32,14 @@ class StatementTest < ActiveSupport::TestCase
   test 'can return the number of statements answered correctly by a user' do
     user = UserFactory.user
     voted_statement = StatementFactory.voted_true_statement(user)
-    number_correct_statements = Statement.number_correct?(user)
+    number_correct_statements = Statement.number_correct(user)
     assert_equal 1, number_correct_statements
   end
 
   test 'can return the number of statements answered incorrectly by a user' do
     user = UserFactory.user
     voted_statement = StatementFactory.voted_false_statement(user)
-    number_incorrect_statements = Statement.number_incorrect?(user)
+    number_incorrect_statements = Statement.number_incorrect(user)
     assert_equal 1, number_incorrect_statements
   end
 end
