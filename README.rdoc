@@ -6,9 +6,9 @@ I should point out that before this course I had no coding experience
 beyond basic intro online courses currently available on the web.
 
 The app is created with Ruby/Ruby on Rails, incorporating a bit of unobtrusive JavaScript,
-JQuery and Bootstrap for the front-end while focusing on proper Test Driven
-Development in order to incorporate best practices and write clean, clear and
-elegant code that is easy to maintain.
+JQuery and Bootstrap for the front-end while focusing on Test Driven Development in
+order to incorporate best practices and write clean, clear and elegant code that is
+easy to maintain.
 
 Additionally, I used Omniauth to sign in users through Twitter and data is persisted
 using Pestgresql.  I hope you find I've done a good job.
