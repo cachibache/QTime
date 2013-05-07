@@ -24,7 +24,7 @@ class StatementsControllerTest < ActionController::TestCase
     assert_equal 1, Statement.count
   end
 
-  test 'cannot create statement unless logged in' do
+  test 'cannot create statement if not logged in' do
     user = UserFactory.user
     assert_equal 0, Statement.count
     post :create, { :statement => {:statement => "some statement", :true_or_false => "true"} }
