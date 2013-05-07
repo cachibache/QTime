@@ -51,7 +51,7 @@ class StatementsController < ApplicationController
       redirect_to statements_path
     else
       flash[:notice] = 'Not deleted. Please try again!'
-      redirect_to statements_path
+      redirect_to statement_path
     end
   end
 

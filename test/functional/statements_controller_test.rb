@@ -31,6 +31,22 @@ class StatementsControllerTest < ActionController::TestCase
     assert_equal 0, Statement.count
   end
 
+  test 'can delete a statement if logged in' do
+    user = UserFactory.user
+    statement = StatementFactory.unvoted_statement
+    assert_equal 1, Statement.count
+    delete :destroy, { :id => statement.id }, { :user_id => user.id }
+    assert_equal 0, Statement.count
+  end
+
+  test 'cannot delete a statement if not logged in' do
+    user = UserFactory.user
+    statement = StatementFactory.unvoted_statement
+    assert_equal 1, Statement.count
+    delete :destroy, { :id => statement.id }
+    assert_equal 1, Statement.count
+  end
+
   test 'can vote true' do
     user = UserFactory.user
     statement = StatementFactory.unvoted_statement
