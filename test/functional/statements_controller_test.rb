@@ -47,6 +47,22 @@ class StatementsControllerTest < ActionController::TestCase
     assert_equal 1, Statement.count
   end
 
+  test 'can update statement if logged in' do
+    user = UserFactory.user
+    statement = StatementFactory.unvoted_statement
+    assert_equal 'some statement', statement.statement
+    put :update, { :statement => { :statement => 'another statement'}, :id => statement.id }, { :user_id => user.id }
+    assert_equal 'another statement', assigns(:statement).statement
+  end
+
+  test 'cannot update statement if not logged in' do
+    user = UserFactory.user
+    statement = StatementFactory.unvoted_statement
+    assert_equal 'some statement', statement.statement
+    put :update, { :statement => { :statement => 'another statement'}, :id => statement.id }
+    assert_equal 'some statement', statement.statement
+  end
+
   test 'can vote true' do
     user = UserFactory.user
     statement = StatementFactory.unvoted_statement
